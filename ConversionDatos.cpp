@@ -1,7 +1,8 @@
 // Conversion de datos 
 //Librerias
 #include <iostream>
-#include <string>
+#include <string> //Necesaria para convertir string
+#include <cmath> //Necesaria para mas precision en operaciones matematicas
 
 using namespace std;
 
@@ -37,6 +38,16 @@ int main()
     {
         valorBooleano = false;
     }
+
+    //int to float
+    n1 = (float) numero;
+
+    //float to int con la libreria cmath siempre redondea de 5 para arriba sera un numero mas y de 4 hacia abajo se mantendra el numero, 
+    //sin esta libreria no es tan preciso y tiende a mantener
+    numero = (int) n1;
+    numero = round(n1);// round es para redondear
+
+
 
 
     return 0;
