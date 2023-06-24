@@ -1,4 +1,4 @@
-//Ejercicio para introducior una palabra y voltearla con while
+//Ejercicio para introducior una palabra y voltearla con for
 #include <iostream>
 
 using namespace std;
@@ -32,6 +32,10 @@ int main()
         cout << cadena.at(i) << " - ";
 
     }
+
+    cout << endl;
+
+    cout << "Subcadena: " << cadena.substr(1,4);
 
 
 
