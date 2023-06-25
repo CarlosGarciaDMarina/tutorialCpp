@@ -3,6 +3,7 @@
 using namespace std;
 
 //Para declarar una funcion se hace fuera del apartado main y se declara con void
+//Funcion area cuadrado
 void areaCuadrado()
 {
     float lado=0.0f;
@@ -18,6 +19,7 @@ void areaCuadrado()
 
 }
 
+//Funcion main
 int main()
 {
     //Este algoritmo me permite calcular el area de un cuadrado
