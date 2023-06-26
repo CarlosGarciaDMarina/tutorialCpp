@@ -6,7 +6,6 @@
 using namespace std;
 
 //Funciones
-
 float capturaNota(int posicion)
 {
     //Inicializamos la variable
