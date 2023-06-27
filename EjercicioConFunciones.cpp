@@ -6,15 +6,21 @@
 using namespace std;
 
 //Funciones
-float capturaNota(int posicion)
+float capturaNota(float &nota, int posicion)
 {
     //Inicializamos la variable
-    float nota = 0.0f;
+    //float nota = 0.0f;
 
     //Pedimos al usuario la nota y la capturamos
     cout << "Introduce el valor de la nota " << posicion << ": " << endl;
     cin >> nota;
 
+    //Vamos a añadir recursividad a la funcion para ello creamos la condicion de que si nota es menor que 0 vuelva a pedir la nota
+    if (nota < 0)
+    {
+        capturaNota(nota, posicion);
+    }
+    
     //La devolvemos
     return nota;
 }
@@ -43,12 +49,12 @@ int main()
     float nota3 = 0.0f;
 
     //Llamamos a la funcion y le pasamos los parametros
-    nota1 = capturaNota(1);
-    nota2 = capturaNota(2);
-    nota3 = capturaNota(3);
+    nota1 = capturaNota(nota1, 1);
+    nota2 = capturaNota(nota2, 2);
+    nota3 = capturaNota(nota3, 3);
     
     //Mostramos las notas para saber si se han almacenado bien
-    cout << "La nota 1 del alumno es: " << nota1 << " la nota 2 es " << nota2 << " y la nota 3 es " << nota3 << endl;
+    cout << "La nota 1 del alumno es " << nota1 << ", la nota 2 es " << nota2 << " y la nota 3 es " << nota3 << endl;
 
     //Pasamos los datos a la funcion de la nota media
     media = notaMedia(nota1, nota2, nota3);
