@@ -2,10 +2,12 @@
 //6.- Crear un programa al que le pasamos nuestro año de nacimiento y el calcula nuestra edad, si le pasamos un año de nacimiento superior al actual devuelve -1
 //7.- Crear un programa al que se le pasen dos valores, uno int(>0) y otro string, el int determina cuantas veces va a repetir una cadena, y la cadena será el string
 //8.- Crear una funcion llamada contarVocales, a la cual se le pasa un string y te devuelve el numero de vocales que tiene
-//9.-
+//9.- Crear un programa que se llame convertirVocales, a la cual se le pasa una cadena y te devulve las vocales en mayus
 //10.-
 //Librerias
 #include <iostream>
+#include <string.h>
+#include <cstring>
 
 //Usos
 using namespace std;
@@ -61,6 +63,8 @@ int contarVocales(string cadena1)
     while (i < cadena1.length())
     {        
         // creamos las condiciones 
+        /*En C++, las comillas simples se utilizan para representar caracteres individuales, mientras que las comillas dobles se utilizan para representar cadenas de caracteres 
+        (secuencia de caracteres).*/
         if ((cadena1.at(i) == 'a') || (cadena1.at(i) == 'e') || (cadena1.at(i) == 'i') || (cadena1.at(i) == 'o') || (cadena1.at(i) == 'u'))
         {
             //Si encuentra una vocal sumamos 1 al contador
@@ -79,6 +83,37 @@ int contarVocales(string cadena1)
     return contador; 
 }
 
+//Esta funcion te devuelve las vocales de una cadena en mayuscula
+string convertirVocales(string cadena2)
+{
+    //Inicializamos las variables; tolower() sirve para convertir a minuscula; toupper() sirve para convertir a masyusucula; se necesita #include <cstring>
+    int i = 0;
+    string resultado = "";
+    
+    //Creamos el bucle que recoora la cadena 
+    while (i < cadena2.length())
+    {        
+        //La condicion sera que por cada caracter que recorra que sea igual a una vocal haga lo siguiente
+        if ((cadena2.at(i) == 'a') || (cadena2.at(i) == 'e') || (cadena2.at(i) == 'i') || (cadena2.at(i) == 'o') || (cadena2.at(i) == 'u'))
+        {
+            //Si encuentra una vocal resultado guardara ese caracter en mayuscula
+            resultado += toupper(cadena2.at(i));
+
+        }       
+        else
+        {
+            //Si no es una vocal, lo que hara es convertirlo a minuscula y almacenarlo en resultado
+            resultado += tolower(cadena2.at(i));
+        }   
+        
+        i+=1;
+    }
+
+    //Devolvemos el resultado de la cadena convertida
+    return resultado;    
+
+
+}
 
 
 
@@ -127,7 +162,24 @@ int main()
     //mostramos por pantalla el resultado
     cout << "El numero de vocales que tiene " << cadena1 << " es : " << resultado << endl;
 
-    
+    /*Ejercicio 9*/
+    //Declaramos las variables necesarias
+    string cadena2 = "";
+    string resultadoCadena = "";
+
+    //Pedimos al usuario una cadena y la capturamos
+    cout << "Dame una palabra para convertir las vocales en mayuscula: " << endl;
+    cin >> cadena2;
+
+    //Le damos un valor al resultado
+    resultadoCadena = convertirVocales(cadena2);
+
+    //mostramos por pantalla el resultado
+    cout << "El resultado de la conversion es : " << resultadoCadena << endl;
+
+
+
+
     
     
     
