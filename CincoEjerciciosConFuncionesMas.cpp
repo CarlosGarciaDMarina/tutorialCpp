@@ -1,7 +1,7 @@
 //Aqui vamos a hacer los ejercicios del 6-10
 //6.- Crear un programa al que le pasamos nuestro año de nacimiento y el calcula nuestra edad, si le pasamos un año de nacimiento superior al actual devuelve -1
 //7.- Crear un programa al que se le pasen dos valores, uno int(>0) y otro string, el int determina cuantas veces va a repetir una cadena, y la cadena será el string
-//8.-
+//8.- Crear una funcion llamada contarVocales, a la cual se le pasa un string y te devuelve el numero de vocales que tiene
 //9.-
 //10.-
 //Librerias
@@ -50,6 +50,35 @@ void repeticionCadena(int repeticion, string cadena)
     
 }
 
+//Esta funcion cuenta las vocales que tiene una cadena
+int contarVocales(string cadena1)
+{
+    //Declaramos las variables
+    int i = 0;
+    int contador = 0;
+    
+    //Creamos el bucle
+    while (i < cadena1.length())
+    {        
+        // creamos las condiciones 
+        if ((cadena1.at(i) == 'a') || (cadena1.at(i) == 'e') || (cadena1.at(i) == 'i') || (cadena1.at(i) == 'o') || (cadena1.at(i) == 'u'))
+        {
+            //Si encuentra una vocal sumamos 1 al contador
+            contador = contador+1;
+        }
+        
+        else
+        {
+            //Si es diferente a una vocal no sumará nada
+            contador = contador + 0;
+        } 
+        
+        i+=1;
+    }
+
+    return contador; 
+}
+
 
 
 
@@ -84,6 +113,19 @@ int main()
     repeticionCadena(repeticiones, cadena);
 
     /*Ejercicio 8*/
+    //Declaramos las variables que necesitamos
+    string cadena1 = "";
+    int resultado = 0;
+
+    //Pedimos al usuario una cadena y la capturamos
+    cout << "Dame una palabra para contar las vocales que tiene: " << endl;
+    cin >> cadena1;
+
+    //Le damos un valor al resultado
+    resultado = contarVocales(cadena1);
+
+    //mostramos por pantalla el resultado
+    cout << "El numero de vocales que tiene " << cadena1 << " es : " << resultado << endl;
 
     
     
