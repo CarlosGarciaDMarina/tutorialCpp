@@ -3,7 +3,7 @@
 //7.- Crear un programa al que se le pasen dos valores, uno int(>0) y otro string, el int determina cuantas veces va a repetir una cadena, y la cadena será el string
 //8.- Crear una funcion llamada contarVocales, a la cual se le pasa un string y te devuelve el numero de vocales que tiene
 //9.- Crear un programa que se llame convertirVocales, a la cual se le pasa una cadena y te devulve las vocales en mayus
-//10.-
+//10.- Crear un programa que se llame camello, a la cual se le pasa un string y te devuelve las letras pares en mayus y las impares en minus
 //Librerias
 #include <iostream>
 #include <string.h>
@@ -111,13 +111,41 @@ string convertirVocales(string cadena2)
 
     //Devolvemos el resultado de la cadena convertida
     return resultado;    
-
-
 }
 
+//Esta funcion recibe una cadena y te da las letras mayusculas de las posiciones pares.
+string camello(string cadena)
+{
+    //Declaramos las variables que vamos a necesitar
+    int i = 0;
+    string resultado = "";
+    int resto = 0;
 
+    //Creamos un bucle que recorra la cadena
+    while (i < cadena.length())
+    {
+        //Sumamos una posicion a la posicion y hacemos la operacion de calcular el resto de la division entre la posicion y 2 
+        resto = i%2;
 
+        //Establecemos las condiciones para que si el resto es distinto haga lo que nosotros queremos
+        if (resto != 0)
+        {
+            //Si el resto es distinto de cero es por que el numero es impar asique aqui habrá minusculas
+            resultado += tolower(cadena.at(i));
+        }
+        else
+        {
+            //Si el resto es 0 es porque el numero es par asique aqui habrá mayusculas
+            resultado += toupper(cadena.at(i));
+        }
+        //sumamos 1 a i
+        i++;
+    }
+    
 
+    //Devolvemos el resultado
+    return resultado;
+}
 
 //Funcion principal
 int main()
@@ -177,14 +205,19 @@ int main()
     //mostramos por pantalla el resultado
     cout << "El resultado de la conversion es : " << resultadoCadena << endl;
 
+    /* Ejercicio 10 */
+    string cadena3 = "";
+    string resultado3 = "";
 
+    //Pedimos al usuario una cadena y la capturamos
+    cout << "Dame una palabra para convertirla en camello: " << endl;
+    cin >> cadena3;
 
+    //Le damos un valor al resultado
+    resultado3 = camello(cadena3);
 
-    
-    
-    
-    
-    
-    
+    //mostramos por pantalla el resultado
+    cout << "El resultado de la conversion es : " << resultado3 << endl;
+ 
     return 0;
 }
