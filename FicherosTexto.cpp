@@ -42,24 +42,37 @@ void escribirTexto(string url, string texto, bool apend)
 }
 
 //Esta funcion sirve para leer un fichero de texto
-void leerFichero(string url)
+string leerFichero(string url)
 {
     //Declaramos las variables
     string lineaFicheroTexto = "";
+    string totalLineas = "";
 
     //Clase para abrir el fichero en modo lectura
-    ifstream fr;
-    fr.open(url);
+    ifstream fr(url);
 
-    //Tipico while para recorrer linea a linea, getLine sirve para capturar las lineas del fichero getline(donde lo metes, variable para almacenar)
-    while (getline(fr, lineaFicheroTexto)) 
+    if (!fr)
     {
-        //Vamos mostrando por pantalla lo que hay escrito
-        cout << lineaFicheroTexto << endl;
-    }
+        //si no existe
+        return "-1";
+    } 
+    else
+    {
+        //si existe
+        //Tipico while para recorrer linea a linea, getLine sirve para capturar las lineas del fichero getline(donde lo metes, variable para almacenar)
+        while (getline(fr, lineaFicheroTexto)) 
+            {
+                //Vamos mostrando por pantalla lo que hay escrito
+                //cout << lineaFicheroTexto << endl;
+                totalLineas = totalLineas + " " + lineaFicheroTexto;
+            }   
 
-    //Cerramos el fichero
-    fr.close();   
+        //Cerramos el fichero
+        fr.close(); 
+        return totalLineas;
+
+    }
+    
 }
 
 
@@ -74,9 +87,13 @@ int main()
     string url = "";
     string sino = "";
     string texto = "";
+    string contenidoFichero = "";
+    char rutaChar [100] = "";
     int respuesta = 0;
+    int i = 0;
     bool apend = true;
     bool salir = false;
+    ifstream fr;
 
     /*
     //Llamamos a la funcion de escritura
@@ -96,10 +113,12 @@ int main()
         cout << "|0.- Salir del programa               |" << endl;
         cout << "|1.- Leer fichero                     |" << endl;
         cout << "|2.- Escribir en fichero              |" << endl;
+        cout << "|3.- Borrar un fichero                |" << endl;
         cout << "|-------------------------------------|" << endl;
 
         cout << "Bienvenido al programa de gestion de ficheros, Que desea hacer hoy ?" << endl;
         cin >> respuesta;
+        cout << endl;
 
         switch (respuesta)
         {
@@ -111,15 +130,35 @@ int main()
             //Leemos el fichero
             cout << "Introduce la ruta del fichero que quieras leer: " << endl;
             cin >> url;
-            leerFichero (url);
+            contenidoFichero = leerFichero(url);
+
+            if (contenidoFichero == "-1")
+            {
+                //Error
+                cout << "El fichero no existe." << endl;
+            }
+            else
+            {
+                //Ruta valida
+                //Llamamos a la funcion
+                cout << "El contenido del fichero es: " << endl;
+                cout << contenidoFichero << endl;
+                cout << endl;
+
+            }
+            
             break;
         case 2:
             //Escribimos en el fichero
+            //Pedimos la url al usuario
             cout << "Introduce la ruta del fichero donde quieres escribir: " << endl;
             cin >> url;
+            
+            //Le preguntamos si quiere machacar el texto que ya hay en la ruta o no
             cout << "Quieres machacar el texto ? y/n" << endl;
             cin >> sino;
 
+            //Dependiendo de su respuesta hara una cosa u otra
             if (sino == "y")
             {
                 //Machacamos el texto
@@ -127,25 +166,69 @@ int main()
 
                 //Preguntamos al usuario y capturamos su respuesta
                 cout << "Que quieres escribir en el fichero ? " << endl;
+                cin.get(); //Si no ponemos esto nos captura el intro del cout y no escribe nada
                 getline(cin, texto); //este getline sirve para capturar string mas largos (incluyendo espacios)
 
                 //Llamamos a la funcion
                 escribirTexto(url, texto, apend);
+                cout << "fichero escrito correctamente."<<endl;
             }
-            else
+            else if (sino == "n")
             {
                 //No machacamos el texto
                 apend = true;
 
                 //Preguntamos al usuario y capturamos su respuesta
                 cout << "Que linea quieres aniadir al fichero? " << endl;
-                getline(cin, texto);// este getline sirve para capturar string mas largos (incluyendo espacios)
+                cin.get(); //Si no ponemos esto nos captura el intro del cout y no escribe nada
+                getline(cin, texto); //este getline sirve para capturar string mas largos (incluyendo espacios)
                 
                 //Llamamos a la funcion
-                escribirTexto(url,texto, apend);
-            }            
+                escribirTexto(url, texto, apend);
+                cout << "fichero escrito correctamente."<<endl;
+
+            }
+            else
+            {
+                //Opcion no valida
+                cout << "Opcion erronea." << endl;
+                cout<<endl;
+            }
+                        
             break;
+            
+        case 3:
+            //Borrar un fichero
+            cout << "Escribe la ruta del fichero a borrar: " << endl;
+            cin >> url;
+            fr.open(url);
+
+            if (fr.is_open())
+            {
+                //El fichero existe
+                fr.close();
+                //Va ir contando cada letra del string y las va a ir almacenando en ruta char 
+                for (i=0; i<url.length(); i++)
+                {
+                    /* code */
+                    rutaChar[i] = url[i];
+
+                }
+                remove(rutaChar);
+                cout << "El fichero ha sido borrado correctamente" << endl;
+              
+            }
+            else
+            {
+                //El fichero no existe
+                cout << "El fichero no existe"<< endl;
+                cout << endl;
+            }
+            
+            break;
+            
         default:
+            cout << "Por favor, introduce una opcion valida."<<endl;
             break;
         }
 
