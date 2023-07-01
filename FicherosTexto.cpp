@@ -130,14 +130,11 @@ int main()
             //Leemos el fichero
             cout << "Introduce la ruta del fichero que quieras leer: " << endl;
             cin >> url;
-            contenidoFichero = leerFichero(url);
+            contenidoFichero = leerFichero(url); //Metemos lo que nos devuelve la funcion en nuestra variable
+            fr.open(url); //Comprobamos si se puede abrir
 
-            if (contenidoFichero == "-1")
-            {
-                //Error
-                cout << "El fichero no existe." << endl;
-            }
-            else
+            //Si se abre leemos lo que hay en contenidoFichero, sino el fichero no existe
+            if (fr.is_open())
             {
                 //Ruta valida
                 //Llamamos a la funcion
@@ -145,6 +142,11 @@ int main()
                 cout << contenidoFichero << endl;
                 cout << endl;
 
+            }
+            else
+            {
+                //Error
+                cout << "El fichero no existe." << endl;
             }
             
             break;
@@ -201,8 +203,9 @@ int main()
             //Borrar un fichero
             cout << "Escribe la ruta del fichero a borrar: " << endl;
             cin >> url;
-            fr.open(url);
+            fr.open(url); //Abrimos la url
 
+            //creamos la condicion para que si se pueda abrir haga una cosa o sino muestre un error
             if (fr.is_open())
             {
                 //El fichero existe
