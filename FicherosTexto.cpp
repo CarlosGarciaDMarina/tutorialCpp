@@ -87,8 +87,10 @@ int main()
     string url = "";
     string sino = "";
     string texto = "";
+    int mensajeSystem = 0;
     string contenidoFichero = "";
     char rutaChar [100] = "";
+    char comando [100] = "";
     int respuesta = 0;
     int i = 0;
     bool apend = true;
@@ -114,8 +116,10 @@ int main()
         cout << "|1.- Leer fichero                     |" << endl;
         cout << "|2.- Escribir en fichero              |" << endl;
         cout << "|3.- Borrar un fichero                |" << endl;
+        cout << "|4.- crear una carpeta                |" << endl;
+        cout << "|5.- Borrar una carpeta               |" << endl;
+        cout << "|6.- Listar archivos                  |" << endl;
         cout << "|-------------------------------------|" << endl;
-
         cout << "Bienvenido al programa de gestion de ficheros, Que desea hacer hoy ?" << endl;
         cin >> respuesta;
         cout << endl;
@@ -210,6 +214,7 @@ int main()
             {
                 //El fichero existe
                 fr.close();
+
                 //Va ir contando cada letra del string y las va a ir almacenando en ruta char 
                 for (i=0; i<url.length(); i++)
                 {
@@ -229,7 +234,104 @@ int main()
             }
             
             break;
+        
+        case 4:
+            //Crear carpeta
+            //Capturamos la ruta donde quiere crea la carpeta
+            cout << "Escribe la ruta donde quieras crear la carpeta" << endl;
+            cin >> url;
+
+            //Añadimos la sentencia para generar la carpeta, la barra delante se pone porque es un caracter de escape y sirve para, 
+            //dentro de unas comillas dobles, poner comillas dobles
+            url = "mkdir \"" + url + "\"";
+            cout << url << endl;
             
+            //Hacemos un bucle for para que recorra la url y la almacene dentro de comando
+            for (i=0; i<url.length(); i++)
+            {
+                /* code */
+                comando[i] = url[i];
+
+            }
+
+            //Con system hacemos que el sistema ejecute un comando, lo vamos a meter dentro de la variable para saber que mensaje devuelve y saber si es un error o no
+            mensajeSystem = system(comando); //System devuelve 0 si el comando se ha realizado correctamente
+            
+            //Creamos las condiciones en las que se va a mostrar un mensaje u otro, 0 es que esta bien y 1 es que no.
+            if (mensajeSystem == 0)
+            {
+                //Todo esta bien asique mostramos por pantalla
+                cout << "Directorio creado correctamente." <<endl;
+            }
+            else
+            {
+                //Error mostramos mensajes de error
+                cout << "Ha ocurrido un error." << endl;
+            }
+            
+            //Salto de linea que hacemos por mejor legibilidad
+            cout << endl;
+            break;
+        case 5:
+            //Eliminar carpeta
+            cout << "Escribe la ruta donde quieras borrar la carpeta" << endl;
+            cin >> url;
+
+            //En vez de mkdir usaremos rmdir para borrar la carpeta
+            url = "rmdir \"" + url + "\"";
+            cout << url << endl;
+
+            //Hacemos un bucle for para que recorra la url y la almacene dentro de comando
+            for (i=0; i < url.length(); i++)
+            {
+                comando[i] = url[i];
+            }
+
+            //Con system hacemos que el sistema ejecute un comando, lo vamos a meter dentro de la variable para saber que mensaje devuelve y saber si es un error o no
+            mensajeSystem = system(comando); //System devuelve 0 si el comando se ha realizado correctamente
+            
+            cout << mensajeSystem << endl;
+
+            //Creamos las condiciones en las que se va a mostrar un mensaje u otro, 0 es que esta bien y sino es 0 mostramos error
+            if (mensajeSystem == 0)
+            {
+                //Todo esta bien asique mostramos por pantalla
+                cout << "Directorio borrado correctamente." <<endl;
+            }
+            else
+            {
+                //Error mostramos mensajes de error
+                cout << "Ha ocurrido un error." << endl;
+            }
+
+            //Salto de linea que hacemos por mejor legibilidad
+            cout << endl;
+            break;
+        case 6:
+            //Listar archivos
+            cout << "Escribe la ruta del directorio a listar: " << endl;
+            cin >> url;
+
+            //Creamos el comando
+            url = "dir \"" + url + "\"";
+
+            //Creamos el mismo for que en los casos anteriores 
+            for ( i = 0; i < url.length(); i++)
+            {
+                /* code */
+                comando[i] = url[i];
+            }
+
+            mensajeSystem = system(comando);
+            cout << mensajeSystem << endl;
+            cout << endl;
+            cout << "Fin del listado." << endl;
+            cout << endl;
+            
+
+
+            break;
+             
         default:
             cout << "Por favor, introduce una opcion valida."<<endl;
             break;
