@@ -75,10 +75,6 @@ string leerFichero(string url)
     
 }
 
-
-
-
-
 //Funcion main
 int main()
 {   
