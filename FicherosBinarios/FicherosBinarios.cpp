@@ -1,4 +1,4 @@
-//Tutorial sobre la gestion de los ficheros binarios en C++
+//Tutorial sobre la gestion de los ficheros binarios en C++; Para saber el tipo de fichero binario que es se indican en los dos primeros bits
 //Librerios
 #include <iostream>
 #include <fstream>
@@ -33,6 +33,9 @@ int main()
 
     //Ahora vamos a leer el fichero, cambiamos el ios::out por el ios::in para indicarles que es de entrada de datos
     fstream fin("./info/datos.dat", ios::binary | ios::in);
+    
+    //Con esta funcion nos posicionamos donde queramos en el fichero (posicion del fichero donde vamos a posicionarnos, posicion desde la cual partimos a contar)
+    //fin.seekg(-6, ios::end);
 
     //Creamos un bucle para que lea los numeros dentro del fichero
     for ( i = 0; i <= 200; i++)
