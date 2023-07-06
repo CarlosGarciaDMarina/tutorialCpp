@@ -1,8 +1,7 @@
 // 1.- Crea un programa que pide al usuario su nombre y apellido, despues crea un fichero con el nombre infousuario.txt y guardalo en lineas distintas
 // 2.- Crear un programa que lea la info del fichero anterior preguntando al usuario la ruta, con control de errores.
-// 3.-
-// 4.-
-// 5.-
+// 3.- Crear un programa que pida el nombre y la ruta de un fichero para borrarlo
+// 4.- Crear un programa que pida al usuario el nombre de un fichero para crearlo
 // Librerios
 #include <iostream>
 #include <fstream>
@@ -67,7 +66,6 @@ string leerFicheros(string url)
 int main()
 {
     // Ejercicio 1
-
     // Variables
     string nombre = "";
     string apellido = "";
@@ -95,6 +93,7 @@ int main()
     string ruta = "";
     string resultado2 = "";
     ifstream fr;
+    ofstream of;
 
     // Preguntamos al usuario la ruta del archivo
     cout << "Dame la ruta del fichero que quieras leer: " << endl;
@@ -118,6 +117,91 @@ int main()
         // Error
         cout << "El fichero no existe." << endl;
     }
+
+    //Ejercicio 3
+    //Variables
+    string Borrar = "";
+    string nombreBorrar = "";
+    string rutaBorrar = "";
+    string rutaCompleta = "";
+    char rutaChar[100] = "";
+    char comando[100] = "";
+    int i = 0;
+
+    //Preguntamos al usuario el nombre del fichero que desea borrar y la ruta
+    cout << "Cual es el nombre del archivo que quieres borrar?" << endl;
+    cin >> nombreBorrar;
+    cout << "Cual es la ruta de ese fichero?" << endl;
+    cin >> rutaBorrar;
+
+    //Completamos la ruta que vamos a enviar a la funcion para borrar el fichero
+    rutaCompleta = rutaBorrar + nombreBorrar;
+    cout << rutaCompleta << endl;
+
+    //Recordad que para borrar se utiliza ifstream
+    fr.open(rutaCompleta); // Comprobamos si se puede abrir
+
+    //Condicional
+    if (fr.is_open())
+    {
+        //existe
+        fr.close();
+
+        //Creamos un bucle que va a guardar 
+        for (i = 0; i < rutaCompleta.length(); i++)
+        {
+            //Almacenamos la ruta en el comando 
+            rutaChar[i] = rutaCompleta[i];
+        }
+        //Borramos
+        remove(rutaChar);
+        cout << "El fichero ha sido borrado correctamente." << endl;
+    }
+    else 
+    {
+        //No existe
+        cout << "El fichero no existe." << endl;
+        cout << endl;
+    }
+
+    //Ejercicio 4
+    //Inicializamos el nombre de las variables
+    string nombreFichero = "";
+    string rutaFichero = "";
+
+    cout << "Dime el nombre del fichero que vamos a crear: " << endl;
+    cin >> nombreFichero;
+
+    //Añadimos el nombre del fichero a la ruta donde lo vamos a crea rpredeterminadamente
+    rutaFichero = "./info/" + nombreFichero + ".txt";
+
+    
+
+    if (of.is_open())
+    {
+        //Si existe 
+        of.close();
+        //Informamos que el archivo existe
+        cout << "El fichero ya existe." << endl;
+        
+    }
+    else
+    {
+        //Abrimos para escribir
+        of.open(rutaFichero);
+
+        //Si no existe lo creamos
+        of << "" <<endl;
+
+        //Informamos que el archivo ha sido creado
+        cout << "Elfichero ha sido creado correctamente." << endl;
+        of.close();
+    }
+    
+    
+    
+
+
 
 
 

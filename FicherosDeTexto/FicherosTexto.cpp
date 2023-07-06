@@ -70,7 +70,6 @@ string leerFichero(string url)
         //Cerramos el fichero
         fr.close(); 
         return totalLineas;
-
     }
     
 }
