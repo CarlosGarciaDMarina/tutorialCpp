@@ -1,7 +1,4 @@
 // 1.- Crear un txt que se llame vocales donde las vocales estaran en orden inverso y a raiz de aqui hay que hacer un programa que las recorra y las devuelva el orden
-// 2.- 
-// 3.- 
-// 4.- 
 // Librerios
 #include <iostream>
 #include <fstream>
