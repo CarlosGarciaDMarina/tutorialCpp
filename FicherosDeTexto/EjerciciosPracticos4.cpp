@@ -3,8 +3,6 @@
 // Librerios
 #include <iostream>
 #include <fstream>
-#include <cstring>
-#include <string.h>
 
 // Usos
 using namespace std;
