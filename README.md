@@ -1,5 +1,4 @@
-<h1><bold>Tutorial C++</bold></h1>
-<img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100">
+<p><h1><bold>Tutorial C++</bold></h1><img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100"></p>
 
 <p>Este repositorio es un tutorial de C++ que estoy realizando en vs code, el orden mediante el cual he ido realizándolo es: </p>
 
