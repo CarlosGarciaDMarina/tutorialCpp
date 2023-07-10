@@ -9,4 +9,4 @@
 <p>3.- Ficheros Binarios //Aquí he aprendido a crear, borrar, listar y moverme entre ficheros binarios</p>
 <p>4.- Programación Orientada a Objetos (POO) //Aquí es donde estoy actualmente.</p>
 <p></p>
-<img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100">
+<center><img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100"></center>
