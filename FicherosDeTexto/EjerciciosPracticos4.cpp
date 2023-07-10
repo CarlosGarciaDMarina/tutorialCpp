@@ -1,5 +1,4 @@
 // 1.- crear una funcion que lea texto.txt, cambie cada vocal por un guion y despues lo guarde en un fichero llamado TextoModificado.txt
-
 // Librerios
 #include <iostream>
 #include <fstream>

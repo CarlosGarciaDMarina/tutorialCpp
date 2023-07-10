@@ -1,7 +1,6 @@
 //Crear un programa que pida al usuario un numero entre 0 y 20, si no esta en este rango dara mensaje de error
 //si el numero esta entre este rango creara un fichero desde el 1 hasta el numero introducido, si el numero es 5
 //se crearan fichero1....fichero5. Si ya hay un fichero3 se machacará su contenido.
-
 //Librerias
 #include <iostream>
 #include <fstream>
