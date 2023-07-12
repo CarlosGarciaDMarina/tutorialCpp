@@ -3,6 +3,7 @@
 #include "Vehiculo.h" // INclusion del fichero .h
 
 //Implementacion de los metodos
+//Constructor
 Vehiculo::Vehiculo()
 {
     this->precio = 10000.0f;
@@ -29,7 +30,7 @@ void Vehiculo::setVelocidad(float velocidad)
 {
     this->velocidad = velocidad;
 }
-
+//Destructor
 Vehiculo::~Vehiculo()
 {
 
