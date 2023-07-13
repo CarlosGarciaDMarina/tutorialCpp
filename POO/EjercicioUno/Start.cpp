@@ -17,16 +17,16 @@ int main()
     Futbolista fut2;
 
     //Configuramos los atributos del futboliista 1
-    fut1.setAltura(1.86f);
-    fut1.setApodo("El Pichichi");
-    fut1.setDorsal(14);
-    fut1.setNombre("Juan");
+    fut1.setAltura(1.76f);
+    fut1.setApodo("Delantero pichichi");
+    fut1.setDorsal(7);
+    fut1.setNombre("Amador");
 
     //Configuramos los atributos del futboliista 2
-    fut2.setAltura(1.71f);
-    fut2.setApodo("El Tanque");
-    fut2.setDorsal(2);
-    fut2.setNombre("Pedro");
+    fut2.setAltura(1.66f);
+    fut2.setApodo("El molinillo");
+    fut2.setDorsal(1);
+    fut2.setNombre("Maxi");
 
     //Ahora mostramos por pantalla los atributos del futbolista 1
     cout << "Los atributos del futbolista 1 son: " << endl;
