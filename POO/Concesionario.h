@@ -17,14 +17,19 @@ protected:
 public:
     Concesionario(/* args */);
     virtual ~Concesionario();
+    
     const Coche& getC1() const;
     void setC1(const Coche &c1);
+
     const Coche& getC2() const;
     void setC2(const Coche &c2);
+
     const Coche& getC3() const;
     void setC3(const Coche &c3);
+
     const Moto& getM1() const;
     void setM1(const Moto &m1);
+
     const Moto& getM2() const;
     void setM2(const Moto &m2);
 
