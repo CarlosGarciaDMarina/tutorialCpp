@@ -5,10 +5,11 @@
 #define NADADOR_H_
 //Librerias
 #include "Deportista.h"
+#include "IDeporte.h"
 //Usos
 using namespace std;
 //Clase
-class Nadador: public Deportista
+class Nadador: public Deportista, public IDeporte
 {
 private:
     /* data */
@@ -28,10 +29,13 @@ public:
     float getAltura() const;
     void setAltura(float altura);
 
+    //Para ilustrar mejor las dos formas de implementar metodos primero voy a implementarlo desde aqui mismo.
     virtual void descripcion()
     {
         cout << "Este deporte consiste en nadar un numero determinado de metros lo mas veloz posible." << endl;
     }
+    //Y en este caso lo llamamos aqui y lo impolementamos mas adelante.
+    virtual void mostrarInfo();
 
 };
 //Constructor
@@ -68,6 +72,13 @@ void Nadador::descripcion()
     this-> tipoDeporte = "Este deporte consiste en nadar un numero determinado de metros lo mas veloz posible.";
 }
 */
+
+void Nadador::mostrarInfo()
+{
+    cout << "Esta es la informacion del nadador que me has pedido: " << endl;
+    cout << "Su peso es: " << this->peso << "kg" << endl;
+    cout << "Su altura es: " << this->altura << "m" << endl;
+}
 
 //Destructor
 Nadador::~Nadador()

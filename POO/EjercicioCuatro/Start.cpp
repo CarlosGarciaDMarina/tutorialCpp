@@ -93,8 +93,17 @@ int main()
     cout << "Altura: " << n1.getAltura() << endl;
     cout << "Peso: " << n1.getPeso() << endl;
 
-
+    //Salto de linea para mayor legibilidad
+    cout << endl;    
     
+    //Mostramos la informacion de la que solo dispone el nadador
+    n1.mostrarInfo();
+
+    //Salto de linea para mayor legibilidad
+    cout << endl;
+
+    //Mostramos la informacion de la que solo dispone el futbolista
+    ft1.mostrarInfo();
 
     return 0;
 }
