@@ -47,21 +47,5 @@ int main()
     //Mostramos las nuevas ganancias para compararlas con las anteriores
     cout << "Ganancias despues de hacer el calculo: " << est1.getGanancias() << "€" << endl;
 
-
-
-    
-
-
-
-
-
-    
-
-
-
-
-
-
-
     return 0;
 }
