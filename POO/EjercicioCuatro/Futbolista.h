@@ -24,6 +24,12 @@ public:
     int getDorsal() const;
     void setDorsal(int dorsal);
 
+    virtual void descripcion()
+    {
+        cout << "Este deporte consiste en marcar el mayor numero de goles usando las piernas en 90 minutos." << endl;
+    }
+
+
 
 };
 //Constructor
@@ -41,6 +47,14 @@ void Futbolista::setDorsal(int dorsal)
 {
     this-> dorsal = dorsal;
 }
+
+//Metodos
+/*
+void Futbolista::descripcion()
+{
+    this->tipoDeporte = "Este deporte consiste en marcar el mayor numero de goles usando las piernas en 90 minutos." ;
+}
+*/
 
 //Destructor
 Futbolista::~Futbolista()

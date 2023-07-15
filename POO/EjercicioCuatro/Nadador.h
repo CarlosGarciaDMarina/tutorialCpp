@@ -28,13 +28,16 @@ public:
     float getAltura() const;
     void setAltura(float altura);
 
+    virtual void descripcion()
+    {
+        cout << "Este deporte consiste en nadar un numero determinado de metros lo mas veloz posible." << endl;
+    }
 
 };
 //Constructor
 Nadador::Nadador(/* args */)
 {
 }
-
 
 //Gettes & Setters
 //Peso
@@ -58,6 +61,13 @@ void Nadador::setAltura(float altura)
     this->altura = altura;
 }
 
+//Metodo
+/*
+void Nadador::descripcion()
+{
+    this-> tipoDeporte = "Este deporte consiste en nadar un numero determinado de metros lo mas veloz posible.";
+}
+*/
 
 //Destructor
 Nadador::~Nadador()

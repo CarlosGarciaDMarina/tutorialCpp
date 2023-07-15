@@ -18,6 +18,7 @@ protected:
     string nombre;
     string dni;
     int edad;
+    string tipoDeporte;
 public:
     //Constructor y destructor
     Deportista(/* args */);
@@ -32,6 +33,8 @@ public:
 
     int getEdad() const;
     void setEdad(int edad);
+
+    virtual void descripcion() = 0;
 
 };
 //Constructor

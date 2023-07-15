@@ -22,15 +22,15 @@ int main()
     float peso = 0.0f;
     float altura = 0.0f;
 
-
     //Objetos
-    Deportista dp1;
+    //Deportista dp1;
     Futbolista ft1;
     Nadador n1;
 
     //Preguntamos al usuario
     //Futbolista
     cout << "Empecemos con el Futbolista: " << endl;
+    ft1.descripcion();
     cout << "Cual es su nombre ?" << endl;
     cin >> nombre;
     cout << "Cual es su dni ?" << endl;
@@ -63,6 +63,7 @@ int main()
     //Preguntamos al usuario
     //Nadador
     cout << "Por ultimo, el nadador: " << endl;
+    n1.descripcion();
     cout << "Cual es su nombre ?" << endl;
     cin >> nombre;
     cout << "Cual es su dni ?" << endl;
@@ -91,6 +92,9 @@ int main()
     cout << "Edad: " << n1.getEdad() << endl;
     cout << "Altura: " << n1.getAltura() << endl;
     cout << "Peso: " << n1.getPeso() << endl;
+
+
+    
 
     return 0;
 }
