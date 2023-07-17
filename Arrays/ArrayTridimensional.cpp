@@ -56,7 +56,6 @@ int main ()
         }
     
     }
-
     //Este bucle va a recorrer el array e ira imprimiendo los distintos resultados
     for ( alumno = 0; alumno < numAlumnos; alumno++)
     {
