@@ -2,8 +2,10 @@
 mostrara un mensaje de tipo de datos erroneo  */
 //Libreria
 #include <iostream>
+
 //Using
 using namespace std;
+
 //Funciones
 
 //Funcion main
@@ -51,6 +53,7 @@ int main()
     }
     catch(...)   //Para garantizar que si surje un error que no este calculado atras utilizaremos este catch
     {
+        //Informamos al usuario
         cout << "Ha ocurrido un error inesperado." << endl;
     }
 

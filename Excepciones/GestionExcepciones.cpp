@@ -14,7 +14,6 @@ int main()
     int num = 0;
     bool salir = false;
 
-
     while (!salir)
     {
         //Primer ejemplo de gestion de excepciones TRY-CATCH
@@ -66,6 +65,7 @@ int main()
 
     //Fin del while
     }
+    
     //Si salir es true nos dará el dato correcto
     if (salir)
     {
