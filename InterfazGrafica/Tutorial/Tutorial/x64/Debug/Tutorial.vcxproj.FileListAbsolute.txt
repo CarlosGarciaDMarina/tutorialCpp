@@ -1,0 +1,4 @@
+D:\ProyectosC++\InterfazGrafica\Tutorial\Tutorial\x64\Debug\Tutorial.vcxproj.AssemblyReference.cache
+D:\ProyectosC++\InterfazGrafica\Tutorial\Tutorial\x64\Debug\Tutorial.vcxproj.SuggestedBindingRedirects.cache
+D:\ProyectosC++\InterfazGrafica\Tutorial\Tutorial\x64\Debug\Tutorial.Form1.resources
+D:\ProyectosC++\InterfazGrafica\Tutorial\Tutorial\x64\Debug\Tutorial.vcxproj.GenerateResource.cache

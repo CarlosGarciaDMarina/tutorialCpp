@@ -1,0 +1,4 @@
+﻿  CppCLR_WinFormsProject.cpp
+D:\ProyectosC++\InterfazGrafica\Tutorial\Tutorial\Form1.h(204,33): warning C4101: 'e': variable local sin referencia
+  AssemblyInfo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  Tutorial.vcxproj -> D:\ProyectosC++\InterfazGrafica\Tutorial\x64\Debug\Tutorial.exe
