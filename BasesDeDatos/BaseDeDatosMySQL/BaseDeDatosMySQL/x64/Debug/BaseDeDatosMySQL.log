@@ -1,0 +1,4 @@
+﻿  BaseDeDatosMySQL.cpp
+D:\ProyectosC++\BasesDeDatos\BaseDeDatosMySQL\BaseDeDatosMySQL\BaseDeDatosMySQL.cpp(13,15): warning C4101: 'row': variable local sin referencia
+D:\ProyectosC++\BasesDeDatos\BaseDeDatosMySQL\BaseDeDatosMySQL\BaseDeDatosMySQL.cpp(12,16): warning C4101: 'res': variable local sin referencia
+  BaseDeDatosMySQL.vcxproj -> D:\ProyectosC++\BasesDeDatos\BaseDeDatosMySQL\x64\Debug\BaseDeDatosMySQL.exe
