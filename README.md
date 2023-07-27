@@ -11,7 +11,7 @@
 <p>5.- Arrays //Aquí he aprendido a crear arrays, arrays dinamicos, arrays bidimensionales, arrays tridimensionales y a trabajar con ellos.</p>
 <p>6.- Excepciones //Aquí he aprendido a controlar errores y gestionarlos en sus diversos casos.</p>
 <p>7.- Interfaz grafica //Aquí he aprendido a trabajar en la interfaz grafica de visual studio 2022.</p>
-<p>8.- Bases de datos //Aquí es donde estoy actualmente.</p>
+<p>8.- Bases de datos //Aquí he aprendido a trabajar con bases de datos: Insertar datos, modificar datos, borrar datos, mostrar datos, etc...</p>
 
 <p></p>
 <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100">
