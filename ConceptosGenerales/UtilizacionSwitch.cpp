@@ -8,7 +8,7 @@ int main()
     //Este algoritmo determina la accion a realizar dependiendo del color de un semaforo
     int color = 0;
 
-    cout << "Intrroduce el color del semaforo" << endl;
+    cout << "Introduce el color del semaforo" << endl;
     cout << "1.- Rojo" << endl;
     cout << "2.- Amarillo" << endl;
     cout << "3.- Verde" << endl;
