@@ -73,7 +73,7 @@ void Vehiculo::setVelocidad(float velocidad)
 //Destructor
 Vehiculo::~Vehiculo()
 {
-
+    
 }
 
 #endif /*VEHICULO_H_*/
