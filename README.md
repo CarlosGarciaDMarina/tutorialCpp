@@ -12,6 +12,8 @@
 <p>6.- Excepciones //Aquí he aprendido a controlar errores y gestionarlos en sus diversos casos.</p>
 <p>7.- Interfaz grafica //Aquí he aprendido a trabajar en la interfaz grafica de visual studio 2022.</p>
 <p>8.- Bases de datos //Aquí he aprendido a trabajar con bases de datos: Insertar datos, modificar datos, borrar datos, mostrar datos, etc...</p>
+<p>9.- Hilos //Aquí he aprendido a trabajar con hilos: De momento solo he realizado un ejercicio</p>
+
 
 <p></p>
 <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7829302/c-programming-language-clipart-md.png" width="100" height="100">
