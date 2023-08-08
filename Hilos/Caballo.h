@@ -100,7 +100,13 @@ void Caballo::run()
     try
     {
         // Aplicamos aleatoridad en los segundos en los que va a salir cada caballo
-        segundos = rand() % 20 + 1;
+
+        // Dentro de la función run
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(1, 20);
+
+        segundos = dis(gen);
 
         //Abrimos condionales
         if (id == 1)
