@@ -49,7 +49,6 @@ Vehiculo::Vehiculo()
 
 }
 
-
 //Getters y setters
 float Vehiculo::getPrecio() const
 {

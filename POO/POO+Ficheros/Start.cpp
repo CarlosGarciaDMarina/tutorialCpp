@@ -1,6 +1,6 @@
 //Libreria
 #include <iostream>
-#include "Caballo.h"
+#include "Persona.h"
 #include <string>
 #include <fstream>
 
@@ -67,7 +67,33 @@ bool crearArchivo(string direccion)
 }
 
 //Esta funcion sirve para escribir en un fichero de texto
-bool editarFichero(string direccion, string nombre)
+bool editarArchivo(string direccion, bool apend, string nombre, string apellidos, string ciudad, string nacionalidad, int edad)
+{
+    // Gestionamos los errores con try-catch
+    try
+    {
+        /* Llamamos a la clase que trata con los archivos */
+        ofstream of(direccion);
+
+        //Escribimos 
+        of << "Nombre: " << nombre << endl;
+        of << "Apellidos: " << apellidos << endl;
+        of << "Ciudad: " << ciudad << endl;
+        of << "Nacionalidad: " << nacionalidad << endl;
+        of << "Edad: " << edad << endl;
+        of << endl;
+
+        //Cerramos
+        of.close();
+
+        return true;
+    }
+    catch(...)
+    {
+        cout << "Ha ocurrido un error inesperado." << endl;
+        return false;
+    } 
+}
 
 //Funcion main
 int main(int argc, char const *argv[])
@@ -75,17 +101,13 @@ int main(int argc, char const *argv[])
     //Variables
     int menu = 0;
     string respuesta = "";
-    string direccion = "D:/proyectosjava/pruebas/ficherocpp.txt";
+    string direccion = "D:/ProyectosJava/POO/prueba/FicheroCPP.txt";
+    bool apend = true;
 
     //Creamos los objetos
-    Caballo ca1("Juan", 1);
-    Caballo ca2("Pedro", 2);
-    Caballo ca3("Cristina", 3);
-
-    //Pruebas
-    cout << "El nombre del primer caballo es: " << ca1.getNombre() << " y su id es: " << ca1.getId() << " y sus segundos es: " << ca1.getSegundos() << endl;
-    cout << "El nombre del primer caballo es: " << ca2.getNombre() << " y su id es: " << ca2.getId() << " y sus segundos es: " << ca2.getSegundos() << endl;
-    cout << "El nombre del primer caballo es: " << ca3.getNombre() << " y su id es: " << ca3.getId() << " y sus segundos es: " << ca3.getSegundos() << endl;
+    Persona p("Luna", "Himemori", "McCandyKingdom", "Japan", 11);
+    Persona p2("Kanata", "Amane", "Sora", "Japan", 12);
+    Persona p3("Pekora", "Usada", "Pekoland", "Japan", 13);
 
     //Hacemos el loop para tener el menu
     do
@@ -108,29 +130,33 @@ int main(int argc, char const *argv[])
             break;
         case 1:
             /* Crear o editar fichero */
-            existe(direccion);
 
+            //Comprobamos si el fichero existe            
             if (existe(direccion))
             {
-                // Si el fichero existe editamos
+                // SI el fichero existe editamos
+                editarArchivo(direccion, apend, p.getNombre(), p.getApellidos(), p.getCiudad(), p.getNacionalidad(), p.getEdad());
 
+                //Informamos
+                cout << "El fichero ha sido editado con exito." << endl;
             }
             else
             {
-                // Si el fichero no existe lo creamos y luego lo editamos
+                // Si el fichero NO existe lo creamos y luego lo editamos
                 //Llamamos a la funcion para crearlo
                 crearArchivo(direccion);
 
-                //Llamamos a la funcion para editarlo
+                //Informamos
+                cout << "El fichero se ha creado con exito." << endl;
 
+                //Llamamos a la funcion para editarlo
+                editarArchivo(direccion, apend, p.getNombre(), p.getApellidos(), p.getCiudad(), p.getNacionalidad(), p.getEdad());
+
+                //Informamos
+                cout << "El fichero ha sido editado con exito." << endl;
 
             }
-            
-
-            
-
-
-
+                    
             break;
         case 2:
             /* Leer un fichero */
