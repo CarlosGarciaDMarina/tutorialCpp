@@ -176,6 +176,38 @@ bool editarBinario(const string &direccionBin, bool apend, const string &nombre,
 }
 
 // Esta funcion lee un archivo binario
+bool leerBinario(const string &direccionBin)
+{
+    // Gestionamos try-catch
+    try
+    {
+        // Variables que vamos a necesitar
+        string contenido;
+        char c;
+
+        /* Abrimos el metodo para tratar con ficheros binarios y especificamos que ios se in */
+        fstream fin(direccionBin, ios::binary | ios::in);
+
+        //Mientras que haya char por leer, los va a ir imprimiendo
+        while (fin.get(c))
+        {
+            contenido += c;
+        }
+
+        fin.close(); // Cerramos la funcion
+
+        // imprimimos por pantalla
+        cout << "Contenido del archivo:\n"
+             << contenido << endl;
+
+        return true; //Devolvemos true
+    }
+    catch (const exception &e)
+    {
+        cout << "Ha ocurrido un error a la hora de leer el documento" << e.what() << endl;
+        return false; //Devolvemos false
+    }
+}
 
 // Funcion main
 int main(int argc, char const *argv[])
@@ -280,9 +312,10 @@ int main(int argc, char const *argv[])
             break;
         case 4:
             /* Leer un fichero binario */
-            if (existe(direccion))
+            if (existe(direccionBin))
             {
                 /* SI existe */
+                leerBinario(direccionBin); // Llamamos a la funcion
             }
             else
             {
