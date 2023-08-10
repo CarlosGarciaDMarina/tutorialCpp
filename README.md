@@ -13,6 +13,7 @@
 <p>7.- Interfaz grafica //Aquí he aprendido a trabajar en la interfaz grafica de visual studio 2022.</p>
 <p>8.- Bases de datos //Aquí he aprendido a trabajar con bases de datos: Insertar datos, modificar datos, borrar datos, mostrar datos, etc...</p>
 <p>9.- Hilos //Aquí he aprendido a trabajar con hilos: De momento solo he realizado un ejercicio</p>
+<p>10.- Proximamente empezaremos a aprender a trabajar con llamadas a servidores...</p>
 
 
 <p></p>

@@ -1,36 +1,35 @@
-//Libreria
+// Libreria
 #include <iostream>
 #include "Caballo.h"
 #include <string>
 
-//Namespace
+// Namespace
 using namespace std;
 
-//Funciones
+// Funciones
 
-//Funcion main
+// Funcion main
 int main(int argc, char const *argv[])
 {
     try
     {
 
-        //Variables
+        // Variables
         long tiempoCaballo1 = 0;
         long tiempoCaballo2 = 0;
         long tiempoCaballo3 = 0;
-        
 
-        //Creamos los objetos
+        // Creamos los objetos
         Caballo ca1("Juan", 1);
         Caballo ca2("Pedro", 2);
         Caballo ca3("Cristina", 3);
 
-        //Pruebas
+        // Pruebas
         cout << "El nombre del primer caballo es: " << ca1.getNombre() << " y su id es: " << ca1.getId() << " y sus segundos es: " << ca1.getSegundos() << endl;
         cout << "El nombre del segundo caballo es: " << ca2.getNombre() << " y su id es: " << ca2.getId() << " y sus segundos es: " << ca2.getSegundos() << endl;
         cout << "El nombre del tercer caballo es: " << ca3.getNombre() << " y su id es: " << ca3.getId() << " y sus segundos es: " << ca3.getSegundos() << endl;
 
-        //Llamamos a la funcion de los hilos e iniciamos los hilos
+        // Llamamos a la funcion de los hilos e iniciamos los hilos
         thread t(&Caballo::run, &ca1);
         thread t2(&Caballo::run, &ca2);
         thread t3(&Caballo::run, &ca3);
@@ -39,7 +38,7 @@ int main(int argc, char const *argv[])
         t.join();
         t2.join();
         t3.join();
-        
+
         // Obtenemos los tiempos de finalizacion de cada uno
         tiempoCaballo1 = ca1.getTiempoFinalizacion();
         tiempoCaballo2 = ca2.getTiempoFinalizacion();
@@ -67,10 +66,10 @@ int main(int argc, char const *argv[])
             cout << "Ha habido un empate." << endl;
         }
     }
-    catch(...)
+    catch (const exception &e)
     {
-        cout << "Ha ocurrido un error." << endl;
+        cout << "Ha ocurrido un error." << e.what() << endl;
     }
-    
+
     return 0;
 }

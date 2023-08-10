@@ -29,9 +29,9 @@ bool existe(const string &direccion)
             return false;
         }
     }
-    catch (...) // capturamos errores
+    catch (const exception &e)
     {
-        cout << "Ha ocurrido un error.." << endl;
+        cout << "Ha ocurrido un error inesperado." << e.what() << endl;
         return false;
     }
 }
@@ -54,12 +54,9 @@ bool crearArchivo(const string &direccion)
         // Devolvemos true
         return true;
     }
-    catch (...)
+    catch (const exception &e)
     {
-        // Comunicamos que ha ocurrido un error
-        cout << "Ha ocurrido un error." << endl;
-
-        // Devolvemos false
+        cout << "Ha ocurrido un error inesperado." << e.what() << endl;
         return false;
     }
 }
@@ -86,9 +83,9 @@ bool editarArchivo(const string &direccion, bool apend, const string &nombre, co
 
         return true;
     }
-    catch (...)
+    catch (const exception &e)
     {
-        cout << "Ha ocurrido un error inesperado." << endl;
+        cout << "Ha ocurrido un error inesperado." << e.what() << endl;
         return false;
     }
 }
@@ -188,7 +185,7 @@ bool leerBinario(const string &direccionBin)
         /* Abrimos el metodo para tratar con ficheros binarios y especificamos que ios se in */
         fstream fin(direccionBin, ios::binary | ios::in);
 
-        //Mientras que haya char por leer, los va a ir imprimiendo
+        // Mientras que haya char por leer, los va a ir imprimiendo
         while (fin.get(c))
         {
             contenido += c;
@@ -196,16 +193,16 @@ bool leerBinario(const string &direccionBin)
 
         fin.close(); // Cerramos la funcion
 
-        // imprimimos por pantalla
+        // Imprimimos por pantalla
         cout << "Contenido del archivo:\n"
              << contenido << endl;
 
-        return true; //Devolvemos true
+        return true; // Devolvemos true
     }
     catch (const exception &e)
     {
         cout << "Ha ocurrido un error a la hora de leer el documento" << e.what() << endl;
-        return false; //Devolvemos false
+        return false; // Devolvemos false
     }
 }
 
@@ -219,7 +216,7 @@ int main(int argc, char const *argv[])
     string direccionBin = "D:/ProyectosJava/POO/prueba/FicheroBinCPP.bin";
     bool apend = true;
 
-    // Creamos los objetos
+    // Creamos los objetos y configuramos los parametros
     Persona p("Luna", "Himemori", "McCandyKingdom", "Japan", 11);
     Persona p2("Kanata", "Amane", "Sora", "Japan", 12);
     Persona p3("Pekora", "Usada", "Pekoland", "Japan", 13);
@@ -227,6 +224,7 @@ int main(int argc, char const *argv[])
     // Hacemos el loop para tener el menu
     do
     {
+        // Interfaz del programa
         cout << "|-------------------------------|" << endl;
         cout << "|0. Salir del programa.         |" << endl;
         cout << "|1. Crear o editar fichero.     |" << endl;
@@ -235,17 +233,17 @@ int main(int argc, char const *argv[])
         cout << "|4. Leer un fichero bin.        |" << endl;
         cout << "|-------------------------------|" << endl;
         cout << "Introduce una opcion del menu:" << endl;
-        cin >> menu;
+        cin >> menu; // capturamos la respuesta del usuario
 
+        // Abrimos un switch para tratar la respuesta del usuario
         switch (menu)
         {
         case 0:
             /* Salir */
-            cout << "El programa ha finalizado." << endl;
+            cout << "El programa ha finalizado." << endl; // Informamos al usuario
             break;
         case 1:
             /* Crear o editar fichero */
-
             // Comprobamos si el fichero existe
             if (existe(direccion))
             {
@@ -274,19 +272,19 @@ int main(int argc, char const *argv[])
             break;
         case 2:
             /* Leer un fichero */
-            /* Leemos */
+            /* Comprobamos si el fichero existe */
             if (existe(direccion))
             {
                 /* SI existe leemos */
-                respuesta = leerArchivo(direccion);
+                respuesta = leerArchivo(direccion); // Almacenamos la funcion en el string respuesta
 
-                cout << "Contenido del archivo: " << endl;
-                cout << endl;
-                cout << respuesta << endl;
+                cout << "Contenido del archivo: " << endl; // Cabecero informativo
+                cout << endl; // Salto de linea para mejorar la legibilidad
+                cout << respuesta << endl; //mostramos por pantalla el resultado
             }
             else
             {
-                /* Si NO existe */
+                /* Si NO existe informamos al usuario */
                 cout << "No hay ningun archivo que podamos leer." << endl;
             }
 
@@ -295,23 +293,26 @@ int main(int argc, char const *argv[])
             /* Crear o editar fichero binario */
             if (existe(direccionBin))
             {
-                /* SI existe lo editamos */
+                // SI existe llamamos a la funcion y lo editamos 
                 editarBinario(direccionBin, apend, p.getNombre(), p.getApellidos(), p.getCiudad(), p.getNacionalidad(), p.getEdad());
+
+                // Informamos al usuario 
                 cout << "El fichero ha sido editado con exito." << endl;
             }
             else
             {
-                /* Si NO existe */
-                creaBinario(direccionBin);
-                cout << "El fichero se ha creado con exito." << endl;
+                // Si NO existe lo creamos
+                creaBinario(direccionBin); // Llamamos a la funcion y le pasamos la direccion del archivo binario
+                cout << "El fichero se ha creado con exito." << endl; // Informamos al usuario
 
-                // Si el fichero NO existe no pasa nada porque lo creará
-                editarBinario(direccionBin, apend, p.getNombre(), p.getApellidos(), p.getCiudad(), p.getNacionalidad(), p.getEdad());
-                cout << "El fichero ha sido editado con exito." << endl;
+                // Llamamos a la funcion y le pasamos los parametros
+                editarBinario(direccionBin, apend, p.getNombre(), p.getApellidos(), p.getCiudad(), p.getNacionalidad(), p.getEdad()); 
+                cout << "El fichero ha sido editado con exito." << endl; // Informamos al usuario
             }
             break;
         case 4:
             /* Leer un fichero binario */
+            // Comprobamos si existe o no
             if (existe(direccionBin))
             {
                 /* SI existe */
@@ -320,11 +321,13 @@ int main(int argc, char const *argv[])
             else
             {
                 /* Si NO existe */
-                cout << "No hay ningun archivo que podamos leer." << endl;
+                cout << "No hay ningun archivo que podamos leer." << endl; // Informamos al usuario
             }
             break;
+
         default:
-            cout << "Has introducido un caracter invalido" << endl;
+            // Este caso se ejecuta si ninguno de los casos especificados en el switch coincide con la expresión proporcionada.
+            cout << "Has introducido un caracter invalido" << endl; //Informamos al usuario
             break;
         }
     } while ((menu < 0) || (menu > 5));
